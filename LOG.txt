@@ -1,0 +1,95 @@
+C:\Users\voham\Desktop\NIASP_#8\task1>docker network create jenkins
+error during connect: This error may indicate that the docker daemon is not running.: Post http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/networks/create: open //./pipe/docker_engine: The system cannot find the file specified.
+
+C:\Users\voham\Desktop\NIASP_#8\task1>docker network create jenkins
+f799d882caa7751ff85a46ae5f23bd51789df2be3a069d40ddad06177400db4d
+
+
+C:\Users\voham\Desktop\NIASP_#8\task1>docker build -t docker_jenkins .
+[+] Building 7.8s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 538B                                                                               0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/jenkins/jenkins:2.277.2-lts-jdk11                                       6.9s
+ => [1/6] FROM docker.io/jenkins/jenkins:2.277.2-lts-jdk11@sha256:4fd7619d5c2de77236634b634e9750a6b6b3c792dff239d  0.0s
+ => CACHED [2/6] RUN apt-get update && apt-get install -y apt-transport-https        ca-certificates curl gnupg2   0.0s
+ => CACHED [3/6] RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -                       0.0s
+ => CACHED [4/6] RUN apt-key fingerprint 0EBFCD88                                                                  0.0s
+ => CACHED [5/6] RUN add-apt-repository        "deb [arch=amd64] https://download.docker.com/linux/debian          0.0s
+ => CACHED [6/6] RUN apt-get update && apt-get install -y docker-ce-cli                                            0.0s
+ => exporting to image                                                                                             0.8s
+ => => exporting layers                                                                                            0.8s
+ => => writing image sha256:d227fea8a1134060a82b6d1c4162384c52e7c6f4120a90fb77aa78730f37ac78                       0.0s
+ => => naming to docker.io/library/docker_jenkins                                                                  0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+
+C:\Users\voham\Desktop\NIASP_#8\task1>docker images
+REPOSITORY             TAG       IMAGE ID       CREATED         SIZE
+docker_jenkins         latest    d227fea8a113   5 minutes ago   1.03GB
+pr9                    1.0       f18794258589   3 days ago      495MB
+task3_server           latest    9b4dcaec777c   7 days ago      488MB
+dockercompose_client   latest    e378113a8db9   7 days ago      885MB
+dockercompose_server   latest    12aae331dac5   7 days ago      885MB
+dockercompose_web      latest    641c47780769   7 days ago      182MB
+<none>                 <none>    4a1d4c94decf   9 days ago      495MB
+<none>                 <none>    6a3461a841ed   9 days ago      486MB
+<none>                 <none>    7cc1bd0bc07c   9 days ago      486MB
+postgres               latest    26c8bcd8b719   10 days ago     314MB
+httpd                  2.4       0b932df43057   10 days ago     138MB
+mysql                  latest    cbe8815cbea8   10 days ago     546MB
+adminer                latest    396a2cb178d1   2 weeks ago     89.8MB
+
+C:\Users\voham\Desktop\NIASP_#8\task1>heroku login
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/5d0997aa-bc44-4597-8487-73de09375664?requestor=SFMyNTY.g2gDbQAAAA0zNy4yMzAuMTU3LjM0bgYAmHEy83gBYgABUYA.p0b8suEen9xcFbxMv8cnH2WVPjWULnkXwzrk9ncojpc
+heroku: Waiting for login... /
+C:\Users\voham\Desktop\NIASP_#8\task1>heroku login
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/5d0997aa-bc44-4597-8487-73de09375664?requestor=SFMyNTY.g2gDbQAAAA0zNy4yMzAuMTU3LjM0bgYAmHEy83gBYgABUYA.p0b8suEen9xcFbxMv8cnH2WVPjWULnkXwzrk9ncojpc
+Logging in... done
+Logged in as vohammer2001@gmail.com
+C:\Users\voham\Desktop\NIASP_#8\task1>heroku apps:create docker-jenkins7856
+Creating ⬢ docker-jenkins7856... done
+https://docker-jenkins7856.herokuapp.com/ | https://git.heroku.com/docker-jenkins7856.git
+
+C:\Users\voham\Desktop\NIASP_#8\task1>heroku container:push web --app=docker-jenkins7856
+=== Building web (C:\Users\voham\Desktop\NIASP_#8\task1\Dockerfile)
+[+] Building 2.1s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 32B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/jenkins/jenkins:2.277.2-lts-jdk11                                       2.0s
+ => [1/6] FROM docker.io/jenkins/jenkins:2.277.2-lts-jdk11@sha256:4fd7619d5c2de77236634b634e9750a6b6b3c792dff239d  0.0s
+ => CACHED [2/6] RUN apt-get update && apt-get install -y apt-transport-https        ca-certificates curl gnupg2   0.0s
+ => CACHED [3/6] RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -                       0.0s
+ => CACHED [4/6] RUN apt-key fingerprint 0EBFCD88                                                                  0.0s
+ => CACHED [5/6] RUN add-apt-repository        "deb [arch=amd64] https://download.docker.com/linux/debian          0.0s
+ => CACHED [6/6] RUN apt-get update && apt-get install -y docker-ce-cli                                            0.0s
+d9a6015726c4: Pushing [===============>                                   ]  97.75MB/323.9MB
+ => => exporting layers                                                                                            0.0s
+c1bcddf0e470: Pushed
+d9a6015726c4: Pushing [==========>                                        ]  68.67MB/323.9MB
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+=== Pushing web (C:\Users\voham\Desktop\NIASP_#8\task1\Dockerfile)
+Using default tag: latest
+The push refers to repository [registry.heroku.com/docker-jenkins7856/web]
+ce6ff24f51cb: Pushed
+101aa4876ecc: Pushed
+e326dde3fece: Pushed
+cdec2c438d39: Pushed
+ca92a125088c: Pushed
+ee9d83d11470: Pushed
+4c6d942af13d: Pushed
+d071d41b019f: Pushed
+d9a6015726c4: Pushed
+6d1650e4f4fe: Pushed
+f908305f6bb8: Pushed
+latest: digest: sha256:406d6cc8e65abc9969c34592f2dd518a3a5caf70f84e6e7f480168b09ec16a3d size: 4714
+Your image has been successfully pushed. You can now release it with the 'container:release' command.
+c8009944706a: Pushed
+C:\Users\voham\Desktop\NIASP_#8\task1>heroku container:release web --app=docker-jenkins7856
+Releasing images web to docker-jenkins7856... done
