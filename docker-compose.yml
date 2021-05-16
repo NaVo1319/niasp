@@ -3,4 +3,4 @@ services:
  server:
     image: drupal
     ports:
-      - $PORT:80
+      - 8082:80
